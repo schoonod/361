@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <!--Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!--ADD JQUERY HERE OR IT WON'T WORK-->
+
+
+    <!-- Personal Styles -->
+    <link type="text/css" rel="stylesheet" href="stylesheet.css" >
+
+    <title> quiz </title>
+</head>
+
+<body>
+<div class="dark"></div>
+<h2>This is the awesome quiz.</h2>
+<h4>This quiz is to make you more smarter.</h4>
+<div id="container">
+    <div id="formDiv"></div>
+</div>
+<div id="container2">
+    <div id="buttonDiv"></div>
+</div>
+
+</body>
+
+<script>
+// QUIZ OBJECT
+var quiz = [
+    {
+        question: "What is 2+2?",
+        choices: ["0", "4", "3", "murica"]
+    }
+];
+// CORRECT ANSWER ARRAY
+var correctAnswers = [1, 0, 2, 3];
+// SELECTED ANSWER ARRAY
+var selectedAnswers = [null, null, null, null];
+// CURRENT QUESTION
+var currentQuestion;
+
+// CREATE FORM APPENDAGES
+// FORM
+var aQuizForm = function(){
+    var quizForm = document.createElement("form");
+    quizForm.id = "quiz-form";
+    return quizForm;
+
+};
+
+// QUIZ QUESTION
+var aQuestion = function(){
+    var paragraph = document.createElement("p");
+    var text = document.createTextNode(quiz[currentQuestion].question);
+    paragraph.appendChild(text);
+    return paragraph;
+};
+
+
+// UL
+var aList = function (){
+    var list = document.createElement("ul");
+    list.id = "quiz-list";
+    return list;
+};
+
+
+// LI
+var aListItem = function(){
+    return document.createElement("li");
+};
+
+
+// RADIO BUTTON
+var aRadioButton = function(){
+    var radio = document.createElement("input");
+    radio.type = "radio";
+    radio.name = "radio-choices";       // name is required to group radio buttons into the same array
+    radio.id = "radio";
+    return radio;
+};
+
+
+// CHOICE
+var aChoice = function(choice){
+    return document.createTextNode(quiz[currentQuestion].choices[choice]);
+};
+
+
+// NEXT
+var aNextButton = function(){
+    var nextButton = document.createElement("button");
+    nextButton.type = "button";         // This prevents default form submission
+    nextButton.id = "next-button";
+    nextButton.innerHTML = "Next";
+    nextButton.onclick = nextClick;
+    return nextButton;
+};
+
+
+// BACK
+var aBackButton = function () {
+    var backButton = document.createElement("button");
+    backButton.type = "button";
+    backButton.id = "back-button";
+    backButton.innerHTML = "Back";
+    backButton.onclick = backClick;
+    return backButton;
+};
+
+
+// STARTQUIZ
+var aStartButton = function () {
+    var startButton = document.createElement("button");
+    startButton.type = "button";
+    startButton.id = "launch-button";
+    startButton.innerHTML = "Start Quiz";
+    return startButton;
+};
+
+// RESTART QUIZ
+var aRestartButton = function () {
+    var restartButton = document.createElement("button");
+    restartButton.type = "button";
+    restartButton.id = "restart-button";
+    restartButton.innerHTML = "Restart Quiz";
+    restartButton.onclick = restartClick;
+    return restartButton;
+};
+
+
+// CREATE HELPER FUNCTIONS
+// APPEND FORM()
+var appendForm = function() {
+    
+    var formDiv = document.getElementById("formDiv");
+    var container = document.getElementById("container");
+    // TALLY SCORE/FINAL QUIZ PAGE
+    if (!quiz[currentQuestion]) {       // if the next question does not exist (user is at the end of quiz)
+        var form = aQuizForm();
+        var score = tallyScore();
+        form.appendChild(score);
+        document.body.appendChild(form);
+    }
+
+    else {
+        var form = aQuizForm();         // This is not a duplicate delcaration
+        var question = aQuestion();
+        var list = aList();
+
+        // Add the choices
+        for (var i = 0; i < quiz[currentQuestion].choices.length; i++){
+            var listItem = aListItem();
+            var radio = aRadioButton();
+            var choice = aChoice(i);
+            // Determine if choice has been previously selected
+            // if (selectedAnswers[currentQuestion] == i) {
+            //     // If so, check the radio button
+            //     radio.checked = true;
+            // }
+            listItem.appendChild(radio);
+            listItem.appendChild(choice);
+            list.appendChild(listItem);
+        }
+
+        form.appendChild(question);
+        form.appendChild(list);
+        formDiv.appendChild(form);
+        // container.appendChild(formDiv);
+    }
+};
+
+
+// APPEND BUTTONS
+var appendButtons = function(){
+  var buttonDiv = document.getElementById("buttonDiv");
+  if (currentQuestion < 0)            // If the quiz has not been started yet (question = -1
+    buttonDiv.appendChild(aStartButton());
+  else if (currentQuestion >= 0 && currentQuestion < quiz.length)
+    buttonDiv.appendChild(aNextButton());
+  else 
+    buttonDiv.appendChild(aRestartButton());
+  
+};
+
+
+// REMOVE FORM
+var removeForm = function() {
+    var formDiv = document.getElementById("formDiv")
+    formDiv.removeChild(document.getElementById("quiz-form"));
+};
+
+var removeButtons = function() {
+    var back = document.getElementById("back-button");
+    var next = document.getElementById("next-button");
+    if (back)
+        document.body.removeChild(back);
+    if (next)
+        document.body.removeChild(next);
+};
+
+
+// SAVE CHOICE
+var saveChoice = function() {
+    var radioArray = document.getElementsByName("radio-choices");
+    var choice = 0;
+    var found = false;
+    while (found == false && choice < 4){
+        if (radioArray[choice].checked){
+            selectedAnswers[currentQuestion] = choice;
+            found = true;
+            return true;
+        }
+        choice++;
+    }
+    return false;
+};
+
+
+// TALLY SCORE - tallies score and appends to the document for viewing
+var tallyScore = function(){
+    var totalQuestions = quiz.length;
+    var numberRight = 0;
+    var percentCorrect;
+    var scoreMessage;
+
+    for (var i = 0; i < correctAnswers.length; i++){
+        if (selectedAnswers[i] == correctAnswers[i]){
+            numberRight += 1;
+        }
+    }
+
+    percentCorrect = numberRight/totalQuestions * 100;
+    scoreMessage = "Your score is " + percentCorrect.toString() + " % correct!";
+    return document.createTextNode(scoreMessage);
+};
+
+
+// START LAUNCH VIEW
+var launchRender = function() {
+    var formDiv = document.getElementById("formDiv");
+    var form = aQuizForm();
+    var startButton = aStartButton();
+    form.appendChild(startButton);
+    formDiv.appendChild(form);
+    startButton.onclick = startClick;
+};
+
+
+// EVENT HANDLERS
+var startClick = function(){
+    currentQuestion = 0;
+    removeForm();
+    appendForm();
+    appendButtons();
+};
+
+var restartClick = function(){
+    currentQuestion = 0;
+    removeForm();
+    appendForm();
+    appendButtons();
+};
+
+
+var nextClick = function(){
+
+    if (!saveChoice()) {
+        alert("Please select an answer");
+    }
+    else {
+        saveChoice();
+        currentQuestion += 1;
+        removeForm();
+        removeButtons();
+        appendForm();
+        appendButtons();
+    }
+};
+var backClick = function() {
+    currentQuestion -= 1;
+    removeForm();
+    removeButtons();
+    appendForm();
+    appendButtons();
+};
+
+// RENDER THE LAUNCH VIEW
+launchRender();
+</script>
+
+
+</html>
