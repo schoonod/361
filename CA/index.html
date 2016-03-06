@@ -48,6 +48,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.deep_purple-pink.min.css">
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Charts -->
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="charts.js"></script>
+    
     <style>
     #view-source {
       position: fixed;
@@ -75,17 +82,54 @@
       <main class="mdl-layout__content">
         
         <!-- TAB 1 - STATISTICS -->
-        <div style="height:50vh;" class="mdl-layout__tab-panel is-active" id="statistics">
+        <div style="height:500vh;" class="mdl-layout__tab-panel is-active" id="statistics">
+          
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
               <div class="mdl-card__supporting-text">
-                <h4>Put some sweet statistics here.</h4>
+                <h4>Stats Intro</h4>
+                <p>As we move farther into the future younger generations are becoming less
+                knowledgeable about the history and signifigance of US constituion.</p>
+                
+              </div>
+            </div>
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text">
+                <div id="chart1" style="min-width: 200px; height: 250px; margin: 10 auto"></div>
                 
               </div>
               <div class="mdl-card__actions">
                 <a href="quiz.html" class="mdl-button">Test Your Knowledge</a>
               </div>
             </div>
+             <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text">
+                <div id="chart2" style="min-width: 200px; height: 250px; margin: 0 auto"></div>
+                
+              </div>
+              <div class="mdl-card__actions">
+                <a href="quiz.html" class="mdl-button">Test Your Knowledge</a>
+              </div>
+            </div>
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text">
+                <div id="chart3" style="min-width: 200px; height: 250px; margin: 0 auto"></div>
+                
+              </div>
+              <div class="mdl-card__actions">
+                <a href="quiz.html" class="mdl-button">Test Your Knowledge</a>
+              </div>
+            </div>
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text">
+                <div id="chart4" style="min-width: 200px; height: 250px; margin: 0 auto"></div>
+                
+              </div>
+              <div class="mdl-card__actions">
+                <a href="quiz.html" class="mdl-button">Test Your Knowledge</a>
+              </div>
+            </div>
+
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn3">
               <i class="material-icons">more_vert</i>
             </button>
