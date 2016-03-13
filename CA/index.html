@@ -90,37 +90,21 @@
             <div class="mdl-card mdl-cell mdl-cell--12-col">
               <div class="mdl-card__supporting-text">
                 <div id="chart1" style="min-width: 200px; height: 250px; margin: 10 auto"></div>
-                
-              </div>
-              <div class="mdl-card__actions">
-                <a href="quiz.html" class="mdl-button">Test Your Knowledge</a>
-              </div>
+              </div> 
             </div>
              <div class="mdl-card mdl-cell mdl-cell--12-col">
               <div class="mdl-card__supporting-text">
                 <div id="chart2" style="min-width: 200px; height: 250px; margin: 0 auto"></div>
-                
-              </div>
-              <div class="mdl-card__actions">
-                <a href="quiz.html" class="mdl-button">Test Your Knowledge</a>
               </div>
             </div>
             <div class="mdl-card mdl-cell mdl-cell--12-col">
               <div class="mdl-card__supporting-text">
                 <div id="chart3" style="min-width: 200px; height: 250px; margin: 0 auto"></div>
-                
-              </div>
-              <div class="mdl-card__actions">
-                <a href="quiz.html" class="mdl-button">Test Your Knowledge</a>
               </div>
             </div>
             <div class="mdl-card mdl-cell mdl-cell--12-col">
               <div class="mdl-card__supporting-text">
                 <div id="chart4" style="min-width: 200px; height: 250px; margin: 0 auto"></div>
-                
-              </div>
-              <div class="mdl-card__actions">
-                <a href="quiz.html" class="mdl-button">Test Your Knowledge</a>
               </div>
             </div>
           </section>
@@ -138,9 +122,6 @@
                 <div id="container2">
                     <div id="buttonDiv"></div>
                 </div>
-              </div>
-              <div class="mdl-card__actions">
-                <a href="info.html" class="mdl-button">Learn About the US Constitution</a>
               </div>
             </div>
             <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn3">
@@ -224,16 +205,8 @@
                     <span class="prev">&laquo;</span>
                     <span class="next">&raquo;</span>
                     <script src="slide.js"></script> 
-                </div>  
-              <div class="mdl-card__actions">
-                <a href="quiz.html" class="mdl-button">Test Your Knowledge</a>
-              </div>    
+                </div>      
             </div>
-            <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn3">
-              <li class="mdl-menu__item">Lorem</li>
-              <li class="mdl-menu__item" disabled>Ipsum</li>
-              <li class="mdl-menu__item">Dolor</li>
-            </ul>
           </section>
         </div>
       </main>
@@ -243,24 +216,48 @@
       // QUIZ OBJECT
       var quiz = [
           {
-              question: "What is 2+2?",
-              choices: ["0", "4", "3", "murica"]
+              question: "WHAT WAS OUR COUNTRY'S FIRST CONSTITUTION CALLED?",
+              choices: 
+              [
+              "THE ARTICLES OF CONFEDERATION", 
+              "THE DECLARATION OF INDEPENDANCE", 
+              "THE FEDERALIST PAPER", 
+              "THE EMANCIPATION PROCLAMATION"
+              ]
           },
           {
-              question: "Do you know anything about the Constitution?",
-              choices: ["yes", "no", "maybe", "chinchilla"]
+              question: "LAWS FOR THE UNITED STATES ARE MADE BY:",
+              choices: 
+              [
+              "THE PRESIDENT", 
+              "THE SENATE", 
+              "CONGRESS", 
+              "THE SUPREME COURT"
+              ]
           },
           {
-              question: "Did you know there already exists an app like this?",
-              choices: ["yes", "yes", "yes", "yes"]
+              question: "THE LONGEST POSSIBLE TIME A PERSON CAN NOW SERVE AS PRESIDENT IS:",
+              choices: 
+              [
+              "4 YEARS", 
+              "8 YEARS", 
+              "10 YEARS", 
+              "12 YEARS"
+              ]
           },
           {
-              question: "Do you want to learn about the US Constitution?",
-              choices: ["yes", "no", "what is this", "pugs rule"]
+              question: "A PERSON ACCUSED OF A CRIME IN COURT HAS A RIGHT TO:",
+              choices: 
+              [
+              "HEAR THE WITNESS AGAINST HIM/HER", 
+              "BE TRIED WHEREVER HE/SHE WANTS", 
+              "HAVE ANY JUDGE HE/SHE WANTS", 
+              "CHANGE COURTS"
+              ]
           }
       ];
       // CORRECT ANSWER ARRAY
-      var correctAnswers = [1, 1, 1, 3];
+      var correctAnswers = [1, 3, 3, 1];
       // SELECTED ANSWER ARRAY
       var selectedAnswers = [null, null, null, null];
       // CURRENT QUESTION
