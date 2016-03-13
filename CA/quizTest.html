@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+	<head></head>
+	<body>
+	<table id="testtable">
+	</table>
+	</body>
+</html>
+
+<script>
+var correctAnswers = [1,0,1,1];
+var selectedAnseers = [1,0,1,1];
+var answerArray = [];
+var currentIndex = 0;
+
+
+
+ var aQuizForm = function(){
+          var quizForm = document.createElement("form");
+          quizForm.id = "quiz-form";
+          return quizForm;
+      };
+
+(function quizFormTest(){
+		var table = document.getElementById("testtable");
+		var row = document.createElement("tr");
+		var col = document.createElement("td");
+
+		var quizForm = aQuizForm();
+		if (quizForm){
+			console.log("Quiz Form 1");
+			answerArray[currentIndex] = 1
+		col.innerHTML = "Quiz Form Succuess";
+	}
+
+		else {
+			console.log("0");
+			answerArray[currentIndex] = 0
+			col.innerHTML = "Quiz Form Fail";
+		}
+		
+	row.appendChild(col);
+	table.appendChild(row);
+
+		currentIndex++;
+	})();
+
+
+	var aNextButton = function(){
+		var nextButton = document.createElement("button");
+		nextButton.type = "button";         // This prevents default form submission
+		nextButton.id = "next-button";
+		nextButton.innerHTML = "Next";
+		nextButton.className = "mdl-button mdl-js-button mdl-button--raised mdl-button--colored";
+		return nextButton;
+	};
+
+
+	(function nextButtonTest(){
+	var table = document.getElementById("testtable");
+		var row = document.createElement("tr");
+		var col = document.createElement("td");
+		var nextButton = aNextButton();
+		if (nextButton){
+			console.log("Next Button 1");
+			answerArray[currentIndex] = 1;
+			col.innerHTML = "Next Button Succuess";
+	
+		}
+
+		else {
+		col.innerHTML = "Next Button Fail";
+			console.log("0");
+			answerArray[currentIndex] = 0
+		}
+	row.appendChild(col);
+	table.appendChild(row);
+		currentIndex++;
+	})();
+	
+
+	 var aList = function (){
+        var list = document.createElement("ul");
+        list.id = "quiz-list";
+        list.className = "mdl-list";
+        return list;
+      };
+	  
+	(function listTest(){
+	var table = document.getElementById("testtable");
+		var row = document.createElement("tr");
+		var col = document.createElement("td");
+		var list = aList();
+		if (list){
+			col.innerHTML = "List Succuess";
+			console.log("List 1");
+			answerArray[currentIndex] = 1
+		}
+
+		else{
+			col.innerHTML = "List Fail";
+			console.log("0");
+			answerArray[currentIndex] = 0
+		}
+		row.appendChild(col);
+		table.appendChild(row);
+		currentIndex++;
+	})();
+	
+	
+	  var aRadioButton = function(i){
+        var label = document.createElement("label");
+        var radio = document.createElement("input");
+        label.className = "mdl-radio mdl-js-radio mdl-js-ripple-effect";
+        label.setAttribute("for", "radio" + i); 
+        radio.type = "radio";
+        // name is required to group radio buttons into the same array
+        radio.name = "radio-choices";       
+        radio.id = "radio" + i;
+        radio.className = "mdl-radio__button";
+        label.appendChild(radio);
+        return label;
+      };
+	  
+	  (function RadioTest(){
+	  var table = document.getElementById("testtable");
+		var row = document.createElement("tr");
+		var col = document.createElement("td");
+		var radio = aRadioButton();
+		if (radio){
+		col.innerHTML = "Radio Success";
+			console.log("Radio 1");
+			answerArray[currentIndex] = 1;
+		}
+
+		else {
+			col.innerHTML = "Radio Fail";
+			console.log("0");
+			answerArray[currentIndex] = 0;
+		}
+		row.appendChild(col);
+		table.appendChild(row);
+		currentIndex++;
+	})();
+	  
+	  
+	    var aQuestion = function(){
+	    var currentQuestion;
+		var quiz = [
+          {
+              question: "What is 2+2?",
+              choices: ["0", "4", "3", "murica"]
+          },
+          {
+              question: "Do you know anything about the Constitution?",
+              choices: ["yes", "no", "maybe", "chinchilla"]
+          },
+          {
+              question: "Did you know there already exists an app like this?",
+              choices: ["yes", "yes", "yes", "yes"]
+          },
+          {
+              question: "Do you want to learn about the US Constitution?",
+              choices: ["yes", "no", "what is this", "pugs rule"]
+          }
+      ];
+		
+        var paragraph = document.createElement("p");
+        var text = document.createTextNode(quiz[1].question);
+        paragraph.appendChild(text);
+        return paragraph;
+      };
+
+	 (function QuestionTest(){
+	 var table = document.getElementById("testtable");
+		var row = document.createElement("tr");
+		var col = document.createElement("td");
+		
+		var question = aQuestion();
+		if (question){
+			col.innerHTML = "Question Success";
+			console.log("Question 1");
+			answerArray[currentIndex] = 1
+		}
+
+		else {
+			col.innerHTML = "Question Fail";
+			console.log("0");
+			answerArray[currentIndex] = 0
+		}
+		row.appendChild(col);
+		table.appendChild(row);
+		currentIndex++;
+	})();
+	
+	
+     var aListItem = function(){
+		var item = document.createElement("li")
+        item.className = "mdl-list__item";
+        return item;
+      };
+	  
+	  (function listItemTest(){
+		var table = document.getElementById("testtable");
+		var row = document.createElement("tr");
+		var col = document.createElement("td");
+		var listItem = aListItem();
+		if (listItem){
+			col.innerHTML = "List Item Success";
+			console.log("List Item 1");
+			answerArray[currentIndex] = 1
+		}
+
+		else {
+			col.innerHTML = "List Item Success";
+			console.log("0");
+			answerArray[currentIndex] = 0
+		}
+		row.appendChild(col);
+		table.appendChild(row);
+		currentIndex++;
+	})();
+	
+	var aRadioButton = function(){
+    var radio = document.createElement("input");
+    radio.type = "radio";
+    radio.name = "radio-choices";       // name is required to group radio buttons into the same array
+    radio.id = "radio";
+    return radio;
+};
+
+(function radioTest(){
+		var table = document.getElementById("testtable");
+		var row = document.createElement("tr");
+		var col = document.createElement("td");
+		var radio = aRadioButton();
+		if (radio){
+			col.innerHTML = "Radio Success";
+			console.log("Radio 1");
+			answerArray[currentIndex] = 1
+		}
+
+		else {
+			col.innerHTML = "Radio Fail";
+			console.log("0");
+			answerArray[currentIndex] = 0
+		}
+		row.appendChild(col);
+		table.appendChild(row);
+		currentIndex++;
+	})();
+
+	var aChoice = function(){
+    choices: ["0", "4", "3", "murica"];
+	var quiz = [
+          {
+              question: "What is 2+2?",
+              choices: ["0", "4", "3", "murica"]
+          },
+          {
+              question: "Do you know anything about the Constitution?",
+              choices: ["yes", "no", "maybe", "chinchilla"]
+          },
+          {
+              question: "Did you know there already exists an app like this?",
+              choices: ["yes", "yes", "yes", "yes"]
+          },
+          {
+              question: "Do you want to learn about the US Constitution?",
+              choices: ["yes", "no", "what is this", "pugs rule"]
+          }
+      ];
+    return document.createTextNode(quiz[1].choices[1]);
+};
+
+(function aChoiceTest(){
+var table = document.getElementById("testtable");
+		var row = document.createElement("tr");
+		var col = document.createElement("td");
+        var choice = aChoice();
+		if (choice){
+			col.innerHTML = "Choice Success";
+			console.log("Choice 1");
+			answerArray[currentIndex] = 1;
+		}
+
+		else {
+			col.innerHTML = "Choice Fail";
+			console.log("0");
+			answerArray[currentIndex] = 0;
+		}
+		row.appendChild(col);
+		table.appendChild(row);
+		currentIndex++;
+      	  })();
+	
+	
+	var backClick = function() {
+    currentQuestion -= 1;
+    removeForm();
+    removeButtons();
+    appendForm();
+    appendButtons();
+};	  
+	var aBackButton = function () {
+	
+	var backButton = document.createElement("button");
+    backButton.type = "button";
+    backButton.id = "back-button";
+    backButton.innerHTML = "Back";
+    backButton.onclick = backClick;
+    return backButton;
+};
+
+(function backButtonTest(){
+		var table = document.getElementById("testtable");
+		var row = document.createElement("tr");
+		var col = document.createElement("td");
+		var backButton = aBackButton();
+		if (backButton){
+			col.innerHTML = "Back Button Success";
+			console.log("Back Button 1");
+			answerArray[currentIndex] = 1;
+		}
+
+		else {
+			col.innerHTML = "Back Button Fail";
+			console.log("0");
+			answerArray[currentIndex] = 0;
+		}
+		row.appendChild(col);
+		table.appendChild(row);
+		currentIndex++;
+	})();
+	
+	var aStartButton = function () {
+    var startButton = document.createElement("button");
+    startButton.type = "button";
+    startButton.id = "launch-button";
+    startButton.innerHTML = "Start Quiz";
+    return startButton;
+	};
+	
+	(function startButtonTest(){
+		var table = document.getElementById("testtable");
+		var row = document.createElement("tr");
+		var col = document.createElement("td");
+		var start= aStartButton();
+		if (start){
+			col.innerHTML = "Sart Button Success";
+			console.log("Start Button 1");
+			answerArray[currentIndex] = 1;
+		}
+
+		else {
+			col.innerHTML = "Start Button Success";
+			console.log("0");
+			answerArray[currentIndex] = 0;
+		}
+		row.appendChild(col);
+		table.appendChild(row);
+		currentIndex++;
+	})();
+	
+	var restartClick = function(){
+    currentQuestion = 0;
+    removeForm();
+    appendForm();
+    appendButtons();
+};
+	
+	var aRestartButton = function () {
+    var restartButton = document.createElement("button");
+    restartButton.type = "button";
+    restartButton.id = "restart-button";
+    restartButton.innerHTML = "Restart Quiz";
+    restartButton.onclick = restartClick;
+    return restartButton;
+};
+
+(function reStartButtonTest(){
+		var table = document.getElementById("testtable");
+		var row = document.createElement("tr");
+		var col = document.createElement("td");
+		var restart= aRestartButton();
+		if (restart){
+			col.innerHTML = "Restart Button Success";
+			console.log("Restart Button 1");
+			answerArray[currentIndex] = 1;
+		}
+
+		else {
+			col.innerHTML = "Restart Button Success";
+			console.log("0");
+			answerArray[currentIndex] = 0;
+		}
+		row.appendChild(col);
+		table.appendChild(row);
+		currentIndex++;
+	})();
+	
+	var tallyScore = function(){
+	var correctAnswers = [1,0,1,1];
+    var selectedAnswers = [1,0,1,1];
+    var totalQuestions = 4;
+    var numberRight = 0;
+    var percentCorrect;
+    var scoreMessage;
+    for (var i = 0; i < correctAnswers.length; i++){
+        if (selectedAnswers[i] == correctAnswers[i]){
+            numberRight += 1;
+        }
+    }
+    percentCorrect = numberRight/totalQuestions * 100;
+    scoreMessage = "Your score is " + percentCorrect.toString() + " % correct!";
+    
+	if(percentCorrect == 100){
+		return 1;
+		}
+		else {
+		return 0;
+		}
+};
+
+(function tallyTest(){
+		var table = document.getElementById("testtable");
+		var row = document.createElement("tr");
+		var col = document.createElement("td");
+		var tally = tallyScore();
+		if (tally){
+			col.innerHTML = "Tally Success";
+			console.log("Tally 1");
+			answerArray[currentIndex] = 1;
+		}
+
+		else {
+			col.innerHTML = "Tally Fail";
+			console.log("0");
+			answerArray[currentIndex] = 0;
+		}
+		row.appendChild(col);
+		table.appendChild(row);
+		currentIndex++;
+	})();
+
+	
+	
+	
+	
+	</script>
