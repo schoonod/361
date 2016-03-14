@@ -1,3 +1,209 @@
+//pie chartn3
+
+$(function () {
+    $('#chartn3').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'If the Supreme Court rules on a case 5 to 4, does this mean…?'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Brands',
+            colorByPoint: true,
+            data: [{
+                name: 'The decision is the law and <br> needs to be followed',
+                y: 47,
+                sliced: true,
+                selected: true
+            }, {
+                name: 'The decision is sent back <br> to Congress for reconsideration',
+                y: 21
+            }, {
+                name: 'The decision is sent back to <br> the lower courts to be decided there',
+                y: 8
+            }, {
+                name: 'Don’t Know ',
+                y: 25
+            }]
+        }]
+    });
+});
+
+//end pie chart n3
+//pie chartn2
+
+$(function () {
+    $('#chartn2').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Who has the final responsibility to determine if a law is <br>constitutional or not? The president, Congress, or the Supreme Court?'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Brands',
+            colorByPoint: true,
+            data: [{
+                name: 'Supreme Court',
+                y: 62,
+                sliced: true,
+                selected: true
+            }, {
+                name: 'President',
+                y: 12
+            }, {
+                name: 'Congress',
+                y: 17
+            }, {
+                name: 'Not Sure/Dont Know',
+                y: 8
+            }]
+        }]
+    });
+});
+
+//end pie chart n2
+//pie chart n1
+
+$(function () {
+    $('#chartn1').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'How Much of  majority is required for The US Senate and <br>the House of Representatives to override a pressidential veto? UNAIDED'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Brands',
+            colorByPoint: true,
+            data: [{
+                name: 'Two Thirds',
+                y: 27,
+                sliced: true,
+                selected: true
+            }, {
+                name: 'Other',
+                y: 26
+            }, {
+                name: 'Not Sure/Dont know',
+                y: 47
+            }]
+        }]
+    });
+});
+
+//end pie chart n1
+//pie chart0
+
+$(function () {
+    $('#chart0').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Would you mind naming any of them (three branches of government)'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Brands',
+            colorByPoint: true,
+            data: [{
+                name: 'Know all three branches',
+                y: 36,
+                sliced: true,
+                selected: true
+            }, {
+                name: 'They know two branches',
+                y: 16
+            }, {
+                name: 'They know one branch',
+                y: 13
+            }, {
+                name: 'They do not know any branches',
+                y: 35
+            }]
+        }]
+    });
+});
+
+//end pie chart 0
+
 $(function () {
     $('#chart1').highcharts({
         title: {
